@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 
 import { AlertModule } from 'ngx-bootstrap';
@@ -41,11 +42,12 @@ import { HomeComponent } from './home/home.component';
         },
         {
             path :'home',
-            component: HomeComponent
+            component: HomeComponent,
+            canActivate: [AuthGuard]
         }
     ])
   ],
-  providers: [AuthService],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

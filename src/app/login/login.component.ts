@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../services/auth.service';
-import { Injectable } from '@angular/core';
+
 import { Router } from "@angular/router";
-@Injectable()
+
 
 @Component({
   selector: 'app-login',
@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
           $('#erreur').css('display','inline');
       } );
   }
+
+
   constructor(private authservice: AuthService, private router:Router){}
 
 

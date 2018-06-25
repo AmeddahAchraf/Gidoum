@@ -7,22 +7,26 @@ import { Observable } from 'rxjs/Observable';
 
 export class AuthService {
   private user: Observable<firebase.User>;
-  userDetails='';
+  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
+  }
 
-constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
-      this.user = _firebaseAuth.authState;
+  logoutService() {
+    this._firebaseAuth.auth.signOut()
+      .then((res) => this.router.navigate(['/']));
   }
 
   signInNormal(email, password) {
-    return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+    return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password);
   }
-  
-  isLoggedIn() {
-    if (this.userDetails == null ) {
-        return false;
-      } else {
-        return true;
-      }
-    }
+
+
+
+
+/////
+
+
+
+
+
 
 }
