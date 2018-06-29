@@ -19,14 +19,4 @@ export class AuthService {
     return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
-
-
-
-/////
-
-
-
-
-
-
 }

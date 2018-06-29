@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
-import { AuthGuard } from './services/auth-guard.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 import { AlertModule } from 'ngx-bootstrap';
@@ -43,11 +43,11 @@ import { HomeComponent } from './home/home.component';
         {
             path :'home',
             component: HomeComponent,
-            canActivate: [AuthGuard]
+            canActivate: [AuthGuardService]
         }
     ])
   ],
-  providers: [AuthService,AuthGuard],
+  providers: [AuthService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../services/auth.service';
-
+import * as $ from 'jquery';
 import { Router } from "@angular/router";
 
 
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   signInWithEmail() {
     this.authservice.signInNormal(this.user.email, this.user.password)
-      .then((res) => {
+      .then( (res) => {
         this.userFB=res;
         this.router.navigate(['home']);
       })
